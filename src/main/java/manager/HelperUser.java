@@ -20,6 +20,7 @@ public void openLoginRegistrationForm(){
     //loginTab.click();
 
     click(By.xpath("//a[text()='LOGIN']"));
+    logger.info("open form by click on button with locator By.xpath(\"//a[text()='LOGIN']\" ");
 }
 
 public void fillLoginRegistrationForm(String email, String password){
@@ -29,6 +30,8 @@ public void fillLoginRegistrationForm(String email, String password){
 //        emailInput.sendKeys(email);
 
     type(By.xpath("//input[@placeholder = 'Email']"),email);
+    logger.info("type in input with locator By.xpath(\"//input[@placeholder = 'Email']\" ");
+
 
 
 //        WebElement passwordInput = wd.findElement(By.xpath("//input[last()]"));
@@ -36,6 +39,8 @@ public void fillLoginRegistrationForm(String email, String password){
 //        passwordInput.clear();
 //        passwordInput.sendKeys(email);
     type(By.xpath("//input[last()]"),password);
+    //type(By.xpath("//input[la]"),password);
+
 }
 
     public void fillLoginRegistrationForm(User user){
