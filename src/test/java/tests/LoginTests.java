@@ -14,7 +14,7 @@ import java.util.List;
 
 public class LoginTests extends TestBase {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void preCondition() {
         //if SingOut present --->logout
         if (app.getHelperUser().isLogged()) {
@@ -64,7 +64,7 @@ public class LoginTests extends TestBase {
 
     }
 
-    @Test
+    @Test(groups = {"smoke"})
     public void loginWrongEmail() {
         logger.info("Test data ---> email: 'maragmail.com' & password : 'Mmar123456$' ");
         app.getHelperUser().openLoginRegistrationForm();
@@ -88,9 +88,9 @@ public class LoginTests extends TestBase {
 
     @Test
     public void loginUnregisteredUser() {
-        logger.info("Test data ---> email: 'luck@gmail.com' & password : 'Lluk123456$' ");
+        logger.info("Test data ---> email: 'lucka@gmail.com' & password : 'Lluka123456$' ");
         app.getHelperUser().openLoginRegistrationForm();
-        app.getHelperUser().fillLoginRegistrationForm("luck@gmail.com", "Lluk123456$");
+        app.getHelperUser().fillLoginRegistrationForm("lucka@gmail.com", "Lluka123456$");
         app.getHelperUser().submitLogin();
         Assert.assertTrue(app.getHelperUser().isAlertPresent("Wrong email or password"));
         logger.info("Assert check is alert present with error text 'Wrong email or password'");

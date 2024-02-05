@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class RegistrationTests extends TestBase{
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void preCondition(){
         //if SingOut present --->logout
         if(app.getHelperUser().isLogged()){
@@ -29,7 +29,7 @@ public class RegistrationTests extends TestBase{
     }
 
 
-    @Test(description = "Bug report #23456 Fixed")
+    @Test(description = "Bug report #23456 Fixed", groups = {"smoke"})
     public void registrationWrongEmail(){
         User user = new User().withEmail("bongmail.com").withPassword("Bon987456$");
         app.getHelperUser().openLoginRegistrationForm();
